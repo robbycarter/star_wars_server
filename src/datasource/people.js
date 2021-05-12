@@ -20,6 +20,15 @@ class PeopleAPI extends RESTDataSource {
         return this.personReducer(responses, personId);
     }
 
+    async searchPerson({ name }) {
+        const responses = await this.get(`?search=${name}`);
+        
+        responses.results = Array.isArray(responses.results) ?
+            responses.results.map((person, index) => this.personReducer(person, index)) : [];
+
+        return responses
+    }
+
     personReducer(person, index) {
         return {
             id: index,
