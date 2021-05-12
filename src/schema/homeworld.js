@@ -6,7 +6,6 @@ export default gql `
   }
  
   type Homeworld {
-    id: String!
     name: String!
     gravity: String!
     terrain: String!

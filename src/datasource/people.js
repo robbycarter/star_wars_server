@@ -12,13 +12,12 @@ class PeopleAPI extends RESTDataSource {
         responses.results = Array.isArray(responses.results) ?
             responses.results.map((person, index) => this.personReducer(person, index)) : [];
 
-
         return responses
     }
 
     async getPersonById({ personId }) {
         const responses = await this.get(personId);
-        return this.personReducer(responses);
+        return this.personReducer(responses, personId);
     }
 
     personReducer(person, index) {

@@ -19,6 +19,6 @@ export default gql `
     height: String!
     mass: String!
     gender: String!
-    homeworld: String!
+    homeworld: Homeworld!
   }
 `;
