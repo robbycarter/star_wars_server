@@ -15,5 +15,11 @@ export default {
             return dataSources.peopleAPI.getPersonById({ personId: id });
         }
     },
+    Person: {
+        homeworld: async (parent, _, { dataSources }) => {
+            // Get Homeworld data
+            return dataSources.homeworldAPI.getHomeworld({ link: parent.homeworld })
+        }
+    }
 
 };
