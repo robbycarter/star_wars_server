@@ -17,7 +17,7 @@ export default {
         },
         searchPerson: async (_, { name }, { dataSources }) => {
             const people = await dataSources.peopleAPI.searchPerson({ name: name });
-            console.log(people)
+            
             return {
                 count: people.count,
                 hasMore: (people.next) ? true : false,
